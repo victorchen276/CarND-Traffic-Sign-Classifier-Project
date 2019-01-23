@@ -4,8 +4,8 @@ import pickle
 import numpy as np
 from pandas.io.parsers import read_csv
 import random
-import matplotlib
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
+
 import tensorflow as tf
 
 # TODO: Fill this in based on where you saved the training and testing data
@@ -54,21 +54,52 @@ print("Image data shape =", image_shape)
 print("Number of classes =", n_classes)
 
 
-signnames = read_csv("signnames.csv").values[:, 1]
-col_width = max(len(name) for name in signnames)
+# signnames = read_csv("signnames.csv").values[:, 1]
+# col_width = max(len(name) for name in signnames)
+#
+# for c, c_index, c_count in zip(sign_classes, class_indices, class_counts):
+#     print("Class %i: %-*s  Count: %s " % (c, col_width, signnames[c], str(c_count)))
+#     fig = pyplot.figure(figsize=(6, 1))
+#     fig.subplots_adjust(left=0, right=1, bottom=0, top=1, hspace=0.05, wspace=0.05)
+#     random_indices = random.sample(range(c_index, c_index + c_count), 10)
+#     for i in range(5):
+#         axis = fig.add_subplot(1, 10, i + 1, xticks=[], yticks=[])
+#         axis.imshow(X_train[random_indices[i]])
+#     pyplot.show()
+#
+# pyplot.bar(np.arange(43), class_counts, align='center')
+# pyplot.xlabel('Class')
+# pyplot.ylabel('Number of training examples')
+# pyplot.xlim([-1, 43])
+# pyplot.show()
 
-for c, c_index, c_count in zip(sign_classes, class_indices, class_counts):
-    print("Class %i: %-*s  Count: %s " % (c, col_width, signnames[c], str(c_count)))
-    fig = pyplot.figure(figsize=(6, 1))
-    fig.subplots_adjust(left=0, right=1, bottom=0, top=1, hspace=0.05, wspace=0.05)
-    random_indices = random.sample(range(c_index, c_index + c_count), 10)
-    for i in range(5):
-        axis = fig.add_subplot(1, 10, i + 1, xticks=[], yticks=[])
-        axis.imshow(X_train[random_indices[i]])
-    pyplot.show()
+# get_ipython().magic('matplotlib inline')
 
-pyplot.bar(np.arange(43), class_counts, align='center')
-pyplot.xlabel('Class')
-pyplot.ylabel('Number of training examples')
-pyplot.xlim([-1, 43])
-pyplot.show()
+
+def draw_images_examples(image_array, grid_x, grid_y, title):
+    fig = plt.figure(figsize=(grid_x, grid_y))
+    fig.suptitle(title, fontsize=20)
+
+    for i in range(1, grid_y * grid_x):
+        index = random.randint(0, len(image_array))
+        image = image_array[index].squeeze()
+
+        plt.subplot(grid_y, grid_x, i)
+        plt.imshow(image)
+        plt.axis('off')
+
+    plt.show()
+
+
+draw_images_examples(X_train, 16, 4, 'Examples of images from training set')
+
+fig = plt.figure(figsize=(12, 4))
+n, bins, patches = plt.hist(y_train, n_classes)
+plt.xlabel('Labels')
+plt.ylabel('No. of samples')
+plt.title('Histogram of training samples')
+plt.show()
+
+
+# X_train_one_label = X_train[np.where(y_train == 0)]
+# draw_images_examples(X_train_one_label, 16, 4, 'Examples of images of the same type - Speed limit (20km/h)')
