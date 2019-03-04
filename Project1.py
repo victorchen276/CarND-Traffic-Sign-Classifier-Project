@@ -5,14 +5,18 @@ import cv2
 # TODO: Fill this in based on where you saved the training and testing data
 
 training_file = "./traffic-signs-data/train.p"
+validation_file = './traffic-signs-data/valid.p'
 testing_file = "./traffic-signs-data/test.p"
 
 with open(training_file, mode='rb') as f:
     train = pickle.load(f)
+with open(validation_file, mode='rb') as f:
+    valid = pickle.load(f)
 with open(testing_file, mode='rb') as f:
     test = pickle.load(f)
 
 X_train, y_train = train['features'], train['labels']
+X_valid, y_valid = valid['features'], valid['labels']
 X_test, y_test = test['features'], test['labels']
 
 print("X_train shape:", X_train.shape)
@@ -26,6 +30,9 @@ import numpy as np
 
 # TODO: Number of training examples
 n_train = len(X_train)
+
+# TODO: Number of validation examples
+n_validation = len(X_valid)
 
 # TODO: Number of testing examples.
 n_test = len(X_test)
@@ -41,29 +48,37 @@ print("Number of testing examples =", n_test)
 print("Image data shape =", image_shape)
 print("Number of classes =", n_classes)
 
+
+
 import matplotlib.pyplot as plt
 import random
-# # Visualizations will be shown in the notebook.
-# # %matplotlib inline
-#
-# # show image of 10 random data points
-# fig, axs = plt.subplots(2,5, figsize=(15, 6))
-# fig.subplots_adjust(hspace = .2, wspace=.001)
-# axs = axs.ravel()
-# for i in range(10):
-#     index = random.randint(0, len(X_train))
-#     image = X_train[index]
-#     axs[i].axis('off')
-#     axs[i].imshow(image)
-#     axs[i].set_title(y_train[index])
-#
-# plt.show()
-#
-# hist, bins = np.histogram(y_train, bins=n_classes)
-# width = 0.7 * (bins[1] - bins[0])
-# center = (bins[:-1] + bins[1:]) / 2
-# plt.bar(center, hist, align='center', width=width)
-# plt.show()
+from pandas.io.parsers import read_csv
+
+# Visualizations will be shown in the notebook.
+# %matplotlib inline
+
+signnames = read_csv("signnames.csv").values[:, 1]
+
+# show image of 10 random data points
+fig, axs = plt.subplots(2,5, figsize=(15, 6))
+fig.subplots_adjust(hspace = .2, wspace=.001)
+axs = axs.ravel()
+for i in range(10):
+    index = random.randint(0, len(X_train))
+    image = X_train[index]
+    axs[i].axis('off')
+    axs[i].imshow(image)
+    axs[i].set_title(str(y_train[index])+': '+signnames[y_train[index]])
+
+plt.show()
+
+hist, bins = np.histogram(y_train, bins=n_classes)
+width = 0.7 * (bins[1] - bins[0])
+center = (bins[:-1] + bins[1:]) / 2
+plt.bar(center, hist, align='center', width=width)
+plt.show()
+
+len(np.unique(y_train))
 
 
 ### Preprocess the data here.
@@ -83,6 +98,8 @@ X_train = X_train_gry
 X_test = X_test_gry
 
 print('done')
+
+# exit
 
 
 # # Visualize rgb vs grayscale
@@ -131,154 +148,6 @@ axs[1].set_title('original')
 axs[1].imshow(X_train[0].squeeze(), cmap='gray')
 plt.show()
 
-
-
-
-def random_translate(img):
-    rows, cols, _ = img.shape
-
-    # allow translation up to px pixels in x and y directions
-    px = 2
-    dx, dy = np.random.randint(-px, px, 2)
-
-    M = np.float32([[1, 0, dx], [0, 1, dy]])
-    dst = cv2.warpAffine(img, M, (cols, rows))
-
-    dst = dst[:, :, np.newaxis]
-
-    return dst
-
-
-test_img = X_train_normalized[22222]
-
-test_dst = random_translate(test_img)
-
-fig, axs = plt.subplots(1, 2, figsize=(10, 3))
-
-axs[0].axis('off')
-axs[0].imshow(test_img.squeeze(), cmap='gray')
-axs[0].set_title('original')
-
-axs[1].axis('off')
-axs[1].imshow(test_dst.squeeze(), cmap='gray')
-axs[1].set_title('translated')
-
-plt.show()
-
-print('shape in/out:', test_img.shape, test_dst.shape)
-
-
-def random_scaling(img):
-    rows, cols, _ = img.shape
-
-    # transform limits
-    px = np.random.randint(-2, 2)
-
-    # ending locations
-    pts1 = np.float32([[px, px], [rows - px, px], [px, cols - px], [rows - px, cols - px]])
-
-    # starting locations (4 corners)
-    pts2 = np.float32([[0, 0], [rows, 0], [0, cols], [rows, cols]])
-
-    M = cv2.getPerspectiveTransform(pts1, pts2)
-
-    dst = cv2.warpPerspective(img, M, (rows, cols))
-
-    dst = dst[:, :, np.newaxis]
-
-    return dst
-
-
-test_dst = random_scaling(test_img)
-
-fig, axs = plt.subplots(1, 2, figsize=(10, 3))
-
-axs[0].axis('off')
-axs[0].imshow(test_img.squeeze(), cmap='gray')
-axs[0].set_title('original')
-
-axs[1].axis('off')
-axs[1].imshow(test_dst.squeeze(), cmap='gray')
-axs[1].set_title('scaled')
-
-plt.show()
-
-print('shape in/out:', test_img.shape, test_dst.shape)
-
-
-def random_warp(img):
-    rows, cols, _ = img.shape
-
-    # random scaling coefficients
-    rndx = np.random.rand(3) - 0.5
-    rndx *= cols * 0.06  # this coefficient determines the degree of warping
-    rndy = np.random.rand(3) - 0.5
-    rndy *= rows * 0.06
-
-    # 3 starting points for transform, 1/4 way from edges
-    x1 = cols / 4
-    x2 = 3 * cols / 4
-    y1 = rows / 4
-    y2 = 3 * rows / 4
-
-    pts1 = np.float32([[y1, x1],
-                       [y2, x1],
-                       [y1, x2]])
-    pts2 = np.float32([[y1 + rndy[0], x1 + rndx[0]],
-                       [y2 + rndy[1], x1 + rndx[1]],
-                       [y1 + rndy[2], x2 + rndx[2]]])
-
-    M = cv2.getAffineTransform(pts1, pts2)
-
-    dst = cv2.warpAffine(img, M, (cols, rows))
-
-    dst = dst[:, :, np.newaxis]
-
-    return dst
-
-
-test_dst = random_warp(test_img)
-
-fig, axs = plt.subplots(1, 2, figsize=(10, 3))
-
-axs[0].axis('off')
-axs[0].imshow(test_img.squeeze(), cmap='gray')
-axs[0].set_title('original')
-
-axs[1].axis('off')
-axs[1].imshow(test_dst.squeeze(), cmap='gray')
-axs[1].set_title('warped')
-
-plt.show()
-
-print('shape in/out:', test_img.shape, test_dst.shape)
-
-
-
-def random_brightness(img):
-    shifted = img + 1.0   # shift to (0,2) range
-    img_max_value = max(shifted.flatten())
-    max_coef = 2.0/img_max_value
-    min_coef = max_coef - 0.1
-    coef = np.random.uniform(min_coef, max_coef)
-    dst = shifted * coef - 1.0
-    return dst
-
-test_dst = random_brightness(test_img)
-
-fig, axs = plt.subplots(1,2, figsize=(10, 3))
-
-axs[0].axis('off')
-axs[0].imshow(test_img.squeeze(), cmap='gray')
-axs[0].set_title('original')
-
-axs[1].axis('off')
-axs[1].imshow(test_dst.squeeze(), cmap='gray')
-axs[1].set_title('brightness adjusted')
-
-plt.show()
-
-print('shape in/out:', test_img.shape, test_dst.shape)
 
 
 # histogram of label frequency
@@ -541,3 +410,80 @@ with tf.Session() as sess:
     saver2.restore(sess, "./lenet")
     test_accuracy = evaluate(X_test_normalized, y_test)
     print("Test Set Accuracy = {:.3f}".format(test_accuracy))
+
+
+
+# Reinitialize and re-import if starting a new kernel here
+import matplotlib.pyplot as plt
+# %matplotlib inline
+
+import tensorflow as tf
+import numpy as np
+import cv2
+
+print('done')
+
+### Load the images and plot them here.
+### Feel free to use as many code cells as needed.
+
+#reading in an image
+import glob
+import matplotlib.image as mpimg
+
+fig, axs = plt.subplots(2,4, figsize=(4, 2))
+fig.subplots_adjust(hspace = .2, wspace=.001)
+axs = axs.ravel()
+
+my_images = []
+
+for i, img in enumerate(glob.glob('./test_images/test1/*x.png')):
+    image = cv2.imread(img)
+    axs[i].axis('off')
+    axs[i].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    my_images.append(image)
+
+my_images = np.asarray(my_images)
+
+my_images_gry = np.sum(my_images/3, axis=3, keepdims=True)
+
+my_images_normalized = (my_images_gry - 128)/128
+
+print(my_images_normalized.shape)
+
+### Visualize the softmax probabilities here.
+### Feel free to use as many code cells as needed.
+
+softmax_logits = tf.nn.softmax(logits)
+top_k = tf.nn.top_k(softmax_logits, k=3)
+
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    saver = tf.train.import_meta_graph('./lenet.meta')
+    saver.restore(sess, "./lenet")
+    my_softmax_logits = sess.run(softmax_logits, feed_dict={x: my_images_normalized, keep_prob: 1.0})
+    my_top_k = sess.run(top_k, feed_dict={x: my_images_normalized, keep_prob: 1.0})
+
+    fig, axs = plt.subplots(len(my_images), 4, figsize=(12, 14))
+    fig.subplots_adjust(hspace=.4, wspace=.2)
+    axs = axs.ravel()
+
+    for i, image in enumerate(my_images):
+        axs[4 * i].axis('off')
+        axs[4 * i].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+        axs[4 * i].set_title('input')
+        guess1 = my_top_k[1][i][0]
+        index1 = np.argwhere(y_validation == guess1)[0]
+        axs[4 * i + 1].axis('off')
+        axs[4 * i + 1].imshow(X_validation[index1].squeeze(), cmap='gray')
+        axs[4 * i + 1].set_title('top guess: {} ({:.0f}%)'.format(guess1, 100 * my_top_k[0][i][0]))
+        # guess2 = my_top_k[1][i][1]
+        # index2 = np.argwhere(y_validation == guess2)[0]
+        # axs[4 * i + 2].axis('off')
+        # axs[4 * i + 2].imshow(X_validation[index2].squeeze(), cmap='gray')
+        # axs[4 * i + 2].set_title('2nd guess: {} ({:.0f}%)'.format(guess2, 100 * my_top_k[0][i][1]))
+        # guess3 = my_top_k[1][i][2]
+        # index3 = np.argwhere(y_validation == guess3)[0]
+        # axs[4 * i + 3].axis('off')
+        # axs[4 * i + 3].imshow(X_validation[index3].squeeze(), cmap='gray')
+        # axs[4 * i + 3].set_title('3rd guess: {} ({:.0f}%)'.format(guess3, 100 * my_top_k[0][i][2]))
+    plt.show()

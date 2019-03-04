@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c153d29-4ce9-4254-a4a9-779ed54b3a96" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lenet.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/lenet.data-00000-of-00001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lenet.index" beforeDir="false" afterPath="$PROJECT_DIR$/lenet.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lenet.meta" beforeDir="false" afterPath="$PROJECT_DIR$/lenet.meta" afterDir="false" />
@@ -21,44 +23,46 @@
     <session id="295486394">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
-          <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.1" value="3" />
-          <entry key="project.open.time.2" value="2" />
-          <entry key="project.open.time.3" value="4" />
+          <entry key="project.closed" value="20" />
+          <entry key="project.open.time.0" value="4" />
+          <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.2" value="3" />
+          <entry key="project.open.time.3" value="5" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="1" />
           <entry key="ipynb" value="1" />
-          <entry key="md" value="1" />
-          <entry key="py" value="5" />
+          <entry key="md" value="4" />
+          <entry key="png" value="1" />
+          <entry key="py" value="7" />
           <entry key="yml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IPNB" value="1" />
-          <entry key="Markdown" value="1" />
+          <entry key="Image" value="1" />
+          <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="5" />
+          <entry key="Python" value="7" />
           <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="741" />
+          <entry key="py" value="834" />
           <entry key="yml" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="741" />
+          <entry key="Python" value="834" />
           <entry key="YAML" value="33" />
         </counts>
       </usages-collector>
@@ -66,27 +70,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Project1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7310">
-              <caret line="437" column="55" selection-start-line="437" selection-start-column="55" selection-end-line="437" selection-end-column="88" />
+            <state relative-caret-position="287">
+              <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
-                <marker date="1549617606584" expanded="true" signature="6776:6781" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Project1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="192" selection-start-line="192" selection-end-line="192" />
-              <folding>
-                <element signature="e#20#33#0" expanded="true" />
-              </folding>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/writeup_template.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -105,7 +106,6 @@
       <find>X_test</find>
       <find>skimage</find>
       <find>sci</find>
-      <find>X_validation</find>
       <find>csv</find>
       <find>X_train, y_train = shuffle(X_train, y_train)</find>
       <find>LeNet</find>
@@ -113,6 +113,11 @@
       <find>training_operation</find>
       <find>concat</find>
       <find>softmax_cross_entropy_with_logits</find>
+      <find>keep_prob</find>
+      <find>X_validation</find>
+      <find>pandas</find>
+      <find>train_test_split</find>
+      <find>random_brightness</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,6 +129,7 @@
         <option value="$PROJECT_DIR$/environment.yml" />
         <option value="$PROJECT_DIR$/LeNetLab.py" />
         <option value="$PROJECT_DIR$/Project.py" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/Project1.py" />
       </list>
     </option>
@@ -155,6 +161,11 @@
               <item name="CarND-Traffic-Sign-Classifier-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="CarND-Traffic-Sign-Classifier-Project" type="462c0819:PsiDirectoryNode" />
               <item name="MNIST_data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarND-Traffic-Sign-Classifier-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarND-Traffic-Sign-Classifier-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="test_images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CarND-Traffic-Sign-Classifier-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -236,9 +247,6 @@
       <module name="CarND-Traffic-Sign-Classifier-Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/CarND-TrafficSignClassifier/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -297,8 +305,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1342" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11636219" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20611596" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -313,11 +322,11 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.3296" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3296" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" sideWeight="0.60492843" visible="true" weight="0.32883242" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.60492843" weight="0.32883242" />
       <window_info anchor="right" id="R Graphics" order="4" />
       <window_info anchor="right" id="R Packages" order="5" />
       <window_info anchor="right" id="Database" order="6" />
@@ -333,14 +342,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/signnames.csv">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Traffic_Sign_Classifier.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
@@ -368,19 +369,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7310">
+        <state relative-caret-position="7429">
           <caret line="437" column="55" selection-start-line="437" selection-start-column="55" selection-end-line="437" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualize_cnn.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="94" selection-start-line="47" selection-start-column="85" selection-end-line="47" selection-end-column="94" />
           <folding>
-            <element signature="e#20#33#0" expanded="true" />
-            <marker date="1549617606584" expanded="true" signature="6776:6781" ph="..." />
+            <element signature="e#59#90#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/writeup_template.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="192" selection-start-line="192" selection-end-line="192" />
+        <state relative-caret-position="287">
+          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
           </folding>
