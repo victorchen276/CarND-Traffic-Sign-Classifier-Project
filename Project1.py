@@ -57,28 +57,60 @@ from pandas.io.parsers import read_csv
 # Visualizations will be shown in the notebook.
 # %matplotlib inline
 
-signnames = read_csv("signnames.csv").values[:, 1]
+def plot_figures(figures, nrows=1, ncols=1, labels=None):
+    fig, axs = plt.subplots(ncols=ncols, nrows=nrows, figsize=(12, 14))
+    axs = axs.ravel()
+    for index, title in zip(range(len(figures)), figures):
+        axs[index].imshow(figures[title], plt.gray())
+        if (labels != None):
+            axs[index].set_title(labels[index])
+        else:
+            axs[index].set_title(title)
 
-# show image of 10 random data points
-fig, axs = plt.subplots(2,5, figsize=(15, 6))
-fig.subplots_adjust(hspace = .2, wspace=.001)
-axs = axs.ravel()
-for i in range(10):
-    index = random.randint(0, len(X_train))
-    image = X_train[index]
-    axs[i].axis('off')
-    axs[i].imshow(image)
-    axs[i].set_title(str(y_train[index])+': '+signnames[y_train[index]])
+        axs[index].set_axis_off()
 
-plt.show()
+    plt.tight_layout()
+    plt.show()
 
-hist, bins = np.histogram(y_train, bins=n_classes)
-width = 0.7 * (bins[1] - bins[0])
-center = (bins[:-1] + bins[1:]) / 2
-plt.bar(center, hist, align='center', width=width)
-plt.show()
 
-len(np.unique(y_train))
+# Visualizations will be shown in the notebook.
+# %matplotlib inline
+
+signnames = np.genfromtxt('signnames.csv', skip_header=1, dtype=[('myint', 'i8'), ('mysring', 'S55')], delimiter=',')
+# read_csv("signnames.csv").values[:, 1]
+
+figures = {}
+labels = {}
+for i in range(15):
+    index = random.randint(0, n_train - 1)
+    labels[i] = signnames[y_train[index]][1].decode('ascii')
+    #     print(name_values[y_train[index]][1].decode('ascii'))
+    figures[i] = X_train[index]
+
+plot_figures(figures, 5, 3, labels)
+
+# signnames = read_csv("signnames.csv").values[:, 1]
+#
+# # show image of 10 random data points
+# fig, axs = plt.subplots(2,5, figsize=(15, 6))
+# fig.subplots_adjust(hspace = .2, wspace=.001)
+# axs = axs.ravel()
+# for i in range(10):
+#     index = random.randint(0, len(X_train))
+#     image = X_train[index]
+#     axs[i].axis('off')
+#     axs[i].imshow(image)
+#     axs[i].set_title(str(y_train[index])+': '+signnames[y_train[index]])
+#
+# plt.show()
+#
+# hist, bins = np.histogram(y_train, bins=n_classes)
+# width = 0.7 * (bins[1] - bins[0])
+# center = (bins[:-1] + bins[1:]) / 2
+# plt.bar(center, hist, align='center', width=width)
+# plt.show()
+#
+# len(np.unique(y_train))
 
 
 ### Preprocess the data here.
@@ -380,26 +412,26 @@ def evaluate(X_data, y_data):
 
 print('done')
 
-with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
-    num_examples = len(X_train)
-
-    print("Training...")
-    print()
-    for i in range(EPOCHS):
-        X_train, y_train = shuffle(X_train, y_train)
-        for offset in range(0, num_examples, BATCH_SIZE):
-            end = offset + BATCH_SIZE
-            batch_x, batch_y = X_train[offset:end], y_train[offset:end]
-            sess.run(training_operation, feed_dict={x: batch_x, y: batch_y, keep_prob: 0.5})
-
-        validation_accuracy = evaluate(X_validation, y_validation)
-        print("EPOCH {} ...".format(i + 1))
-        print("Validation Accuracy = {:.3f}".format(validation_accuracy))
-        print()
-
-    saver.save(sess, 'lenet')
-    print("Model saved")
+# with tf.Session() as sess:
+#     sess.run(tf.global_variables_initializer())
+#     num_examples = len(X_train)
+#
+#     print("Training...")
+#     print()
+#     for i in range(EPOCHS):
+#         X_train, y_train = shuffle(X_train, y_train)
+#         for offset in range(0, num_examples, BATCH_SIZE):
+#             end = offset + BATCH_SIZE
+#             batch_x, batch_y = X_train[offset:end], y_train[offset:end]
+#             sess.run(training_operation, feed_dict={x: batch_x, y: batch_y, keep_prob: 0.5})
+#
+#         validation_accuracy = evaluate(X_validation, y_validation)
+#         print("EPOCH {} ...".format(i + 1))
+#         print("Validation Accuracy = {:.3f}".format(validation_accuracy))
+#         print()
+#
+#     saver.save(sess, 'lenet')
+#     print("Model saved")
 
 
 # Now (drumroll) evaluate the accuracy of the model on the test dataset
@@ -436,7 +468,8 @@ axs = axs.ravel()
 
 my_images = []
 
-for i, img in enumerate(glob.glob('./test_images/test1/*x.png')):
+# './test_images/test1/*x.png'
+for i, img in enumerate(glob.glob('./test_images/test1/test_*.png')):
     image = cv2.imread(img)
     axs[i].axis('off')
     axs[i].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
