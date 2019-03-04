@@ -469,7 +469,7 @@ axs = axs.ravel()
 my_images = []
 
 # './test_images/test1/*x.png'
-for i, img in enumerate(glob.glob('./test_images/test1/test_*.png')):
+for i, img in enumerate(glob.glob('./test_images/test_*.png')):
     image = cv2.imread(img)
     axs[i].axis('off')
     axs[i].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
