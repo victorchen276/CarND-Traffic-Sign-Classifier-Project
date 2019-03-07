@@ -1,65 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c153d29-4ce9-4254-a4a9-779ed54b3a96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Project1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/10x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/5x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/6x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/8x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/9x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/bak_test_8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/bak_test_8_back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/test_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/test_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/test_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/test_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/test_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/test_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test1/test_7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00008.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00009.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00010.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00012.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00013.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00014.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00015.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00016.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00017.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00018.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00019.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00020.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00021.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00025.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00027.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00028.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00029.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00030.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00032.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00033.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00034.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00035.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00036.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00037.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_images/test2/example_00038.png" beforeDir="false" />
-    </list>
+    <list default="true" id="3c153d29-4ce9-4254-a4a9-779ed54b3a96" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +17,7 @@
     <session id="295486394">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.2" value="3" />
@@ -126,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Project1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="471" column="49" selection-start-line="471" selection-start-column="49" selection-end-line="471" selection-end-column="49" />
+            <state relative-caret-position="518">
+              <caret line="463" lean-forward="true" selection-start-line="463" selection-end-line="463" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
               </folding>
@@ -322,6 +264,9 @@
       <module name="CarND-Traffic-Sign-Classifier-Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/CarND-TrafficSignClassifier/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -380,7 +325,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1342" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20611596" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -616,8 +560,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="471" column="49" selection-start-line="471" selection-start-column="49" selection-end-line="471" selection-end-column="49" />
+        <state relative-caret-position="518">
+          <caret line="463" lean-forward="true" selection-start-line="463" selection-end-line="463" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
           </folding>
