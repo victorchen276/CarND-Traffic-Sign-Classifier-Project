@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c153d29-4ce9-4254-a4a9-779ed54b3a96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Traffic_Sign_Classifier.html" beforeDir="false" afterPath="$PROJECT_DIR$/Traffic_Sign_Classifier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/writeup.md" beforeDir="false" afterPath="$PROJECT_DIR$/writeup.md" afterDir="false" />
-    </list>
+    <list default="true" id="3c153d29-4ce9-4254-a4a9-779ed54b3a96" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +17,7 @@
     <session id="295486394">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.2" value="3" />
@@ -323,7 +320,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1342" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11517077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
